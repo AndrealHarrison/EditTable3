@@ -19,4 +19,8 @@ struct MovieList {
     mutating func add(film:Movie){
         self.listOfMovies.append(film)
     }
+    
+    mutating public func remove(atIndex: Int) {
+       self.listOfMovies.remove(at:atIndex)
+      }
 }

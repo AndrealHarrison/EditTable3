@@ -23,6 +23,9 @@
                                     <rect key="frame" x="8" y="10.666666666666664" width="183" height="35"/>
                                     <state key="normal" title="Button"/>
                                     <buttonConfiguration key="configuration" style="plain" title="Edit"/>
+                                    <connections>
+                                        <action selector="toggleEditMode:" destination="wQS-qq-GAe" eventType="touchUpInside" id="Jmg-Ev-AVc"/>
+                                    </connections>
                                 </button>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XVD-0F-l5z" userLabel="AddButton">
                                     <rect key="frame" x="199" y="10.666666666666664" width="183" height="35"/>

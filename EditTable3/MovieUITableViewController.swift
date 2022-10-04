@@ -21,6 +21,19 @@ class MovieUITableViewController: UITableViewController {
         tableView.insertRows(at: [IndexPath(row: numRows-1, section: 0)], with: .automatic)
     }
     
+    
+    @IBAction func toggleEditMode(_ sender: UIButton){
+        if isEditing {
+             setEditing(false, animated: true)
+             // Want to edit again later?
+             sender.setTitle("Edit", for: .normal)
+         } else {
+             setEditing(true, animated: true)
+             // Tell app when you're done with editing
+             sender.setTitle("Done", for: .normal)
+         }
+    }
+    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return nameOfDataStoreVariable.listOfMovies.count
     }
@@ -34,5 +47,12 @@ class MovieUITableViewController: UITableViewController {
         cell.detailTextLabel?.text = String(myAwesomeMovie.year)
         
         return cell
+    }
+    
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if( editingStyle == .delete) {
+            nameOfDataStoreVariable.remove(atIndex: indexPath.row)
+            tableView.deleteRows(at: [indexPath], with: .automatic)
+        }
     }
 }
